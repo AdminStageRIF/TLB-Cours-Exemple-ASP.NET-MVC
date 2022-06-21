@@ -1,0 +1,32 @@
+﻿@model Exemple_04.Models.ViewModel05
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="fr-FR">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Ajax-05</title>
+  <link rel="stylesheet" href="~/Content/Site.css" />
+  <script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/globalize.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.fr-FR.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.en-US.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+  <script type="text/javascript" src="~/Scripts/myScripts-05.js"></script>
+</head>
+<body>
+
+  <h2>Ajax - 05, Page unique - Validation formulaire côté client</h2>
+  <p><strong>Heure de chargement : @Model.HeureChargement</strong></p>
+  <h4>Opérations arithmétiques sur deux nombres réels A et B positifs ou nuls</h4>
+  <img id="loading" style="display: none" src="~/Content/images/indicator.gif" />
+  <div id="content">
+    @Html.Partial("Formulaire05", Model)
+  </div>
+</body>
+</html>

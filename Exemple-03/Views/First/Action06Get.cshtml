@@ -1,0 +1,33 @@
+﻿@model Exemple_03.Models.ViewModel05
+@using Exemple_03.Models
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Action06-GET</title>
+</head>
+<body>
+  <h3>Action06 - GET</h3>
+  <p>Choisissez une personne</p>
+  <form method="post" action="/First/Action06">
+    <select name="personneId">
+      @foreach (Personne2 p in Model.Personnes)
+      {
+        string selected = "";
+        if (p.Id == Model.SelectedId)
+        {
+          selected = "selected=\"selected\"";
+        }
+        <option value="@p.Id" @selected>@p.Prénom @p.Nom</option>
+      }
+    </select>
+    <input name="valider" type="submit" value="Valider" />
+  </form>
+</body>
+</html>

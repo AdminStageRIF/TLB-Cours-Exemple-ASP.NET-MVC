@@ -1,0 +1,111 @@
+﻿@model Exemple_03.Models.ViewModel08
+@using Exemple_03.Models
+@{
+  Layout = null;
+}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Formulaire</title>
+</head>
+<body>
+  <form method="post" action="Action08Post">
+    <h2>Formulaire ASP.NET MVC</h2>
+    <h3>Affiché par : @ViewBag.info</h3>
+    <table>
+      <thead></thead>
+      <tbody>
+        <!-- les boutons radio -->
+        <tr>
+          <td>Etes-vous marié(e)</td>
+          <td>
+            @foreach (ApplicationModel.Item item in @Model.RadioButtonFieldItems)
+            {
+              string strChecked = item.Value == @Model.RadioButtonField ? "checked=\"checked\"" : "";
+              <input type="radio" name="RadioButtonField" value="@item.Value" @strChecked/>@item.Label
+              <text/>
+            }
+          </td>
+        </tr>
+        <!-- les cases à cocher -->
+        <tr>
+          <td>Cases à cocher</td>
+          <td>
+            @{
+              foreach (ApplicationModel.Item item in @Model.CheckBoxesFieldItems)
+              {
+                string strChecked = @Model.CheckBoxesField.Contains(item.Value) ? "checked=\"checked\"" : "";
+              <input type="checkbox" name="CheckBoxesField" value="@item.Value" @strChecked/>@item.Label
+              <text/>
+              }
+            }
+          </td>
+          <!-- le champ de saisie texte monoligne -->
+          <tr>
+            <td>Champ de saisie</td>
+            <td>
+              <input type="text" name="TextField" value="@Model.TextField" size="30" />
+            </td>
+          </tr>
+        <!-- le champ de saisie d'un mot de passe -->
+        <tr>
+          <td>Mot de passe</td>
+          <td>
+            <input type="password" name="PasswordField" value="@Model.PasswordField" size="30" />
+          </td>
+        </tr>
+        <!-- le champ de saisie texte multilignes -->
+        <tr>
+          <td>Boîte de saisie</td>
+          <td>
+            <textarea name="TextAreaField" cols="40" rows="3">@Model.TextAreaField</textarea>
+          </td>
+        </tr>
+        <!-- la liste déroulante -->
+        <tr>
+          <td>Liste déroulante</td>
+          <td>
+            <select name="DropDownListField">
+              @{
+                foreach (ApplicationModel.Item item in @Model.DropDownListFieldItems)
+                {
+                  string strChecked = item.Value == @Model.DropDownListField ? "selected=\"selected\"" : "";
+                <option value="@item.Value" @strChecked>@item.Label</option>
+                }
+              }
+            </select>
+        </tr>
+        <!-- la liste à choix unique -->
+        <tr>
+          <td>Liste à choix unique</td>
+          <td>
+            <select name="SimpleChoiceListField" size="3">
+              @{
+                foreach (ApplicationModel.Item item in @Model.SimpleChoiceListFieldItems)
+                {
+                  string strChecked = item.Value == @Model.SimpleChoiceListField ? "selected=\"selected\"" : "";
+                <option value="@item.Value" @strChecked>@item.Label</option>
+                }
+              }
+            </select>
+        </tr>
+        <!-- la liste à choix multiple -->
+        <tr>
+          <td>Liste à choix multiple</td>
+          <td>
+            <select name="MultipleChoiceListField" size="3" multiple="multiple">
+              @{
+                foreach (ApplicationModel.Item item in @Model.MultipleChoiceListFieldItems)
+                {
+                  string strChecked = @Model.MultipleChoiceListField.Contains(item.Value) ? "selected=\"selected\"" : "";
+                <option value="@item.Value" @strChecked>@item.Label</option>
+                }
+              }
+            </select>
+        </tr>
+      </tbody>
+    </table>
+    <input type="submit" value="Valider" />
+  </form>
+</body>
+</html>

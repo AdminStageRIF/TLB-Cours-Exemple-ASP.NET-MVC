@@ -1,0 +1,78 @@
+﻿@model Exemple_04.Models.ViewModel02
+@{
+  Layout = null;
+  AjaxOptions ajaxOpts = new AjaxOptions
+  {
+    HttpMethod = "post",
+    Url = Url.Action("Action02Post"),
+    LoadingElementId = "loading",
+    LoadingElementDuration = 1000,
+    OnBegin = "OnBegin",
+    OnFailure = "OnFailure",
+    OnSuccess = "OnSuccess",
+    OnComplete = "OnComplete"
+  };    
+}
+
+<!DOCTYPE html>
+
+<html lang="fr-FR">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Ajax-02</title>
+  <link rel="stylesheet" href="~/Content/Site.css" />
+  <script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/globalize.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.fr-FR.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.en-US.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+  <script type="text/javascript" src="~/Scripts/myScripts-02.js"></script>
+</head>
+<body>
+  <h2>Ajax - 02</h2>
+  <p><strong>Heure de chargement : @Model.HeureChargement</strong></p>
+  <h4>Opérations arithmétiques sur deux nombres réels A et B positifs ou nuls</h4>
+  @using (Ajax.BeginForm("Action02Post", null, ajaxOpts, new { id = "formulaire" }))
+  {
+    <table>
+      <thead>
+        <tr>
+          <th>@Html.LabelFor(m => m.A)</th>
+          <th>@Html.LabelFor(m => m.B)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>@Html.TextBoxFor(m => m.A)</td>
+          <td>@Html.TextBoxFor(m => m.B)</td>
+        </tr>
+        <tr>
+          <td>@Html.ValidationMessageFor(m => m.A)</td>
+          <td>@Html.ValidationMessageFor(m => m.B)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <input type="submit" value="Calculer" />
+      <img id="loading" style="display: none" src="~/Content/images/indicator.gif" />
+      <a href="javascript:postForm()">Calculer</a>
+    </p>
+  }
+  <hr />
+  <div id="entete">
+    <h4>Résultats</h4>
+    <p><strong>Heure de calcul : <span id="heureCalcul"/></strong></p>
+  </div>
+  <div id="résultats">
+    <p>A+B=<span id="AplusB"/></p>
+    <p>A-B=<span id="AmoinsB"/></p>
+    <p>A*B=<span id="AmultipliéparB"/></p>
+    <p>A/B=<span id="AdiviséparB"/></p>
+  </div>
+  <div id="erreur">
+    <p style="color: red;">Une erreur s'est produite : <span id="msg"/></p>
+  </div>
+</body>
+</html>

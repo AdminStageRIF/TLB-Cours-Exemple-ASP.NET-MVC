@@ -1,0 +1,64 @@
+﻿@model Exemple_04.Models.ViewModel01
+@{
+  Layout = null;
+  AjaxOptions ajaxOpts = new AjaxOptions
+  {
+    UpdateTargetId = "résultats",
+    HttpMethod = "post",
+    Url = Url.Action("Action01Post"),
+    LoadingElementId = "loading",
+    LoadingElementDuration = 1000
+  };    
+}
+
+<!DOCTYPE html>
+
+<html lang="fr-FR">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Ajax-01</title>
+  <link rel="stylesheet" href="~/Content/Site.css" />
+  <script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/globalize.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.fr-FR.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.en-US.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+  <script type="text/javascript" src="~/Scripts/myScripts-01.js"></script>
+</head>
+<body>
+
+  <h2>Ajax - 01</h2>
+  <p><strong>Heure de chargement : @Model.HeureChargement</strong></p>
+  <h4>Opérations arithmétiques sur deux nombres réels A et B positifs ou nuls</h4>
+  @using (Ajax.BeginForm("Action01Post", null, ajaxOpts, new { id = "formulaire" }))
+  {
+    <table>
+      <thead>
+        <tr>
+          <th>@Html.LabelFor(m => m.A)</th>
+          <th>@Html.LabelFor(m => m.B)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>@Html.TextBoxFor(m => m.A)</td>
+          <td>@Html.TextBoxFor(m => m.B)</td>
+        </tr>
+        <tr>
+          <td>@Html.ValidationMessageFor(m => m.A)</td>
+          <td>@Html.ValidationMessageFor(m => m.B)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <input type="submit" value="Calculer" />
+      <img id="loading" style="display: none" src="~/Content/images/indicator.gif" />
+      <a href="javascript:postForm()">Calculer</a>
+    </p>
+  }
+  <hr />
+  <div id="résultats" />
+</body>
+</html>

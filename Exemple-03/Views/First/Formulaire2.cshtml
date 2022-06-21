@@ -1,0 +1,84 @@
+﻿@model Exemple_03.Models.ViewModel09
+@using Exemple_03.Models
+@{
+  Layout = null;
+}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Formulaire</title>
+</head>
+<body>
+  @using (Html.BeginForm("Action09Post", "First")) {
+    <text/>
+    <h2>Formulaire ASP.NET MVC</h2>
+    <h3>Affiché par : @ViewBag.info</h3>
+    <table>
+      <thead></thead>
+      <tbody>
+        <!-- les boutons radio -->
+        <tr>
+          <td>Etes-vous marié(e)</td>
+          <td>
+            @{
+    foreach (ApplicationModel.Item item in @Model.RadioButtonFieldItems) {
+      @Html.RadioButtonFor(m => m.RadioButtonField, @item.Value)@item.Label
+              <text/>
+    }
+            }
+          </td>
+        </tr>
+        <!-- les cases à cocher -->
+        <tr>
+          <td>Cases à cocher</td>
+          <td>
+            @{
+              @Html.CheckBoxFor(m=>m.CheckBoxField1) @Model.CheckBoxesFieldItems[0].Label
+              @Html.CheckBoxFor(m=>m.CheckBoxField2) @Model.CheckBoxesFieldItems[1].Label
+              @Html.CheckBoxFor(m=>m.CheckBoxField3) @Model.CheckBoxesFieldItems[2].Label
+            }
+          </td>
+          <!-- le champ de saisie texte monoligne -->
+        <tr>
+          <td>Champ de saisie</td>
+          <td>
+            @Html.TextBoxFor(m => m.TextField, new { size = "30" })
+          </td>
+        </tr>
+        <!-- le champ de saisie d'un mot de passe -->
+        <tr>
+          <td>Mot de passe</td>
+          <td>
+            @Html.PasswordFor(m => m.PasswordField, new { size = "15" })
+          </td>
+        </tr>
+        <!-- le champ de saisie texte multilignes -->
+        <tr>
+          <td>Boîte de saisie</td>
+          <td>
+            @Html.TextAreaFor(m => m.TextAreaField, new { cols = "30", rows = "5" })
+          </td>
+        </tr>
+        <!-- la liste déroulante -->
+        <tr>
+          <td>Liste déroulante</td>
+          <td>@Html.DropDownListFor(m => m.DropDownListField, new SelectList(@Model.DropDownListFieldItems, "Value", "Label"))</td>
+        </tr>
+        <!-- la liste à choix unique -->
+        <tr>
+          <td>Liste à choix unique</td>
+          <td>
+            @Html.DropDownListFor(m => m.SimpleChoiceListField, new SelectList(@Model.SimpleChoiceListFieldItems, "Value", "Label"), new { size = "3" })
+        </tr>
+        <!-- la liste à choix multiple -->
+        <tr>
+          <td>Liste à choix multiple</td>
+          <td>
+            @Html.ListBoxFor(m => m.MultipleChoiceListField, new SelectList(@Model.MultipleChoiceListFieldItems, "Value", "Label"), new { size = "5" })
+        </tr>
+      </tbody>
+    </table>
+    <input type="submit" value="Valider" />
+  }
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿@model Exemple_04.Models.ViewModel05
+<hr />
+<p><strong>Heure de calcul : @Model.HeureCalcul</strong></p>
+<p>A=@Model.A</p>
+<p>B=@Model.B</p>
+<h2>Les erreurs suivantes se sont produites</h2>
+<ul>
+  @foreach (string msg in Model.Erreurs)
+  {
+    <li>@msg</li>
+  }
+</ul>
+<p>
+  <a href="javascript:retourSaisies()">Retour aux saisies</a>
+</p>

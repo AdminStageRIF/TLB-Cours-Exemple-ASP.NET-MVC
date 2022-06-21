@@ -1,0 +1,28 @@
+﻿@model Exemple_03.Models.ViewModel05
+@using Exemple_03.Models
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Action05</title>
+</head>
+<body>
+  <select>
+    @foreach (Personne2 p in Model.Personnes)
+    {
+      string selected = "";
+      if (p.Id == Model.SelectedId)
+      {
+        selected = "selected=\"selected\"";
+      }
+      <option value="@p.Id" @selected>@p.Prénom @p.Nom</option>
+    }
+  </select>
+</body>
+</html>

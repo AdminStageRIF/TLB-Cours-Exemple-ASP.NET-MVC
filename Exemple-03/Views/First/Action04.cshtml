@@ -1,0 +1,35 @@
+﻿@model Exemple_03.Models.ViewModel02
+@using Exemple_03.Models
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Action04</title>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (Personne p in Model.Personnes)
+      {
+        <tr>
+          <td>@p.Nom</td>
+          <td>@p.Age</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</body>
+</html>
+

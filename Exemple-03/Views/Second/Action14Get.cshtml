@@ -1,0 +1,110 @@
+@model Exemple_03.Models.ViewModel14
+@using Exemple_03.Resources
+@using System.Threading
+@{
+  Layout = null;
+  var lang = Session["lang"] as string;  
+}
+
+<!DOCTYPE html>
+
+<html lang="@lang">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Action14Get</title>
+  <link rel="stylesheet" href="~/Content/Site.css" />
+  <script type="text/javascript" src="~/Scripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/globalize.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.fr-FR.js"></script>
+  <script type="text/javascript" src="~/Scripts/globalize/cultures/globalize.culture.en-US.js"></script>
+  <script type="text/javascript" src="~/Scripts/myscripts2.js"></script>
+  <script>
+    $(document).ready(function () {
+      var culture = '@Thread.CurrentThread.CurrentCulture';
+        Globalize.culture(culture);
+      });
+  </script>
+</head>
+<body>
+  <h3>@MyResources.titre</h3>
+  @using (Html.BeginForm("Action14Post", "Second"))
+  {
+    <table>
+      <thead>
+        <tr>
+          <th>@MyResources.type</th>
+          <th>@MyResources.value</th>
+          <th>@MyResources.error</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>@Html.LabelFor(m => m.Chaine1)</td>
+          <td>@Html.EditorFor(m => m.Chaine1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Chaine1)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Chaine2)</td>
+          <td>@Html.EditorFor(m => m.Chaine2)</td>
+          <td>@Html.ValidationMessageFor(m => m.Chaine2)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Chaine3)</td>
+          <td>@Html.EditorFor(m => m.Chaine3)</td>
+          <td>@Html.ValidationMessageFor(m => m.Chaine3)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Entier1)</td>
+          <td>@Html.EditorFor(m => m.Entier1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Entier1)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Entier2)</td>
+          <td>@Html.EditorFor(m => m.Entier2)</td>
+          <td>@Html.ValidationMessageFor(m => m.Entier2)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Reel1)</td>
+          <td>@Html.EditorFor(m => m.Reel1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Reel1)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Reel2)</td>
+          <td>@Html.EditorFor(m => m.Reel2)</td>
+          <td>@Html.ValidationMessageFor(m => m.Reel2)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Email1)</td>
+          <td>@Html.EditorFor(m => m.Email1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Email1)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Regexp1)</td>
+          <td>@Html.EditorFor(m => m.Regexp1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Regexp1)</td>
+        </tr>
+        <tr>
+          <td>@Html.LabelFor(m => m.Date1)</td>
+          <td>@Html.EditorFor(m => m.Date1)</td>
+          <td>@Html.ValidationMessageFor(m => m.Date1)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <input type="submit" value="Valider" />
+    </p>
+  }
+</body>
+</html>
+<!-- choix d'une langue -->
+@using (Html.BeginForm("Lang", "Second"))
+{
+  <table>
+    <tr>
+      <td><a href="javascript:postForm('fr-FR','/Second/Action14Get')">Français</a></td>
+      <td><a href="javascript:postForm('en-US','/Second/Action14Get')">English</a></td>
+    </tr>
+  </table>
+}

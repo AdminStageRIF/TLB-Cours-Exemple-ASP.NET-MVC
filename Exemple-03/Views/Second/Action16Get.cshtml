@@ -1,0 +1,33 @@
+﻿@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Action16Get</title>
+  <script>
+    function postForm() {
+      // on récupère le formulaire du document
+      var form = document.forms[0];
+      // soumission
+      form.submit();
+    }
+  </script>
+</head>
+<body>
+  <h3>Navigation - page 1</h3>
+  <h4>@ViewBag.info</h4>
+  @using (Html.BeginForm("Action16Post", "Second"))
+  {
+    @Html.Label("data", "Tapez un texte")
+    @Html.TextBox("data")
+    <a href="javascript:postForm()">Valider</a>
+  }
+  <p>
+    @Html.ActionLink("Page 2", "Action17Get", "Second")
+  </p>
+</body>
+</html>
