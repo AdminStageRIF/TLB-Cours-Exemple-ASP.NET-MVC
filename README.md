@@ -1,8 +1,8 @@
 [![IT_AREA_logo_BMM_PNGG](https://user-images.githubusercontent.com/107033711/174778898-9c44aaee-eb70-4d38-b4b0-93c851e09c82.png)](https://sites.google.com/view/it-area/accueil)
 # Multiple exemple d'introduction au cours de programmation ASP.NET MVC
 
-Ceci est un regroupement d'exemple destiné à vous familiariser avec les différentes fonctions et outils disponible sur Visual Studio pour créer une Application ASP.NET MVC  
-Ces exemple sont tiré du Cour de Serge Tahe sur la programmation ASP.NET MVC que vous pouvez retrouver ici : [Cour ASP.NET MVC](https://sergetahe.com/cours-tutoriels-de-programmation/cours-tutoriel-asp-net-mvc-par-lexemple/)  
+Ceci est un regroupement d'exempl<e destiné à vous familiariser avec les différentes fonctions et outils disponible sur Visual Studio pour créer une Application ASP.NET MVC  
+Ces exemple ont été réalisé par les stagiaires du RIF (Rassemblement des ingénieur francophones) a partir du cour de Serge Tahe sur la programmation ASP.NET MVC que vous pouvez retrouver ici : [Cour ASP.NET MVC](https://sergetahe.com/cours-tutoriels-de-programmation/cours-tutoriel-asp-net-mvc-par-lexemple/)  
 
 Les outils utiliser pour la réalisation de ces exemple sont les suivant:
 
