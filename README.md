@@ -14,7 +14,7 @@ Les outils utiliser pour la réalisation de ces exemple sont les suivant:
 
 
 ## Ces exemple sont réparti sur 5 module :
-### Exemple 00 : Les Bases de la programmation Wev
+### Exemple 00 : Les Bases de la programmation Web
 Ce module à pour but de faire découvrir les grands principe de la programmation Web
 ### Exemple 01 : Contrôleurs, Action, Routage
 Ce module expose le processus qui amène la requête au contrôleur et à l'action qui vont la traiter
@@ -26,5 +26,5 @@ Ce module s'intéresse au resultat le plus courant d'une action, le type [ViewRe
 Ce module présenteras l'outils de controle Ajax et comment l'utiliser pour effectuer des requête Ajax et appeler des Vue.
 
 ## Démarage :
-Après avoir récupérer le code,
+Après avoir récupéré le code,
 Lancer Visual Studio et ouvrer le projet TLB-Exemple-Cours-Tahe. Vous y retrouverez la liste des exemple présenté.
